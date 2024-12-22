@@ -97,6 +97,7 @@ function File_analizing {
                 sudo cp -r peepdf/ /usr/bin && sudo chmod +x /usr/bin/peepdf
 }
 
+
 function OSX {
         cd ~/lab && \
                 git clone https://github.com/n0fate/chainbreaker.git

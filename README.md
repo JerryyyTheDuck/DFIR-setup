@@ -1,17 +1,19 @@
-# Setup Forensics Environment for Ubuntu VM and WSL
+# Setup Forensics Environment for Ubuntu VM
 
-### **Minimum Requirements for UBUNTU-WSL**
+Due to the python 2.7 cannot install normally due to Canonical has dropped support to Python version 2.x after the long-term Ubuntu. 
+The script will automate download some tools and programming language that listed below
 
+### **Minimum Requirements for UBUNTU-WSL** 
 - At least 60GB hard drive (WSL cost me around 2x GB of hard disk)
 - At least 4-8GB RAM
 - Windows Subsystem for Linux version 2
-- Ubuntu Distro (Tested with 22.04.2)
+- Ubuntu Distro (Tested with 24.04.1)
 
-### **Minimum Requirements for UBUNTU-VM**
+### **Minimum Requirements for UBUNTU-VM** (This is still underconstruction for Ubuntu 24.01 VM)
 
 - At least 128GB hard drive (VM)
 - At least 4GB RAM (VM) and 8GB RAM (Host)
-- Ubuntu Distro (Tested with 22.04.2)
+- Ubuntu Distro (Tested with 24.04.1)
 
 **THOSE SCRIPTS ARE FOR FRESH AND CLEAN UBUNTU INSTALLATION ONLY**
 
@@ -20,28 +22,78 @@
 + First, clone this repository to your local lab
     
     ```sh
-    git clone https://github.com/tr4c3datr4il/ForVM.git
+    https://github.com/P5ySm1th/DFIR-VM.git
     ```
 
 + Second, change dir to the repo and change the permission of **install.sh** file.
     
     ```sh
-    cd ForVM
+    cd DFIR-VM
     chmod +x install.sh
     ```
 
 + Last, run the install file:
     
     ```
-    ./install.sh
+    sudo ./install.sh
     ```
 
-### Something you shouldn't miss:
+#### Tools installed in this WSL
 
-+ You can use this command to check if there's any error package while installing: **cat Installation.log | grep -i "ERROR"**. **Installation.log** is located at the folder where you put the install script.
+## Programming language
+- Python 3.12 (default for Ubuntu 24.04.1)
+- Python 2.7 
+- Go
 
-+ Tools is listed at `Tools.md` file.
+## Network and Log analyze
+- tshark (CLI)
+- fakenet-ng 
+- chainsaw
+- hayabusa
 
-+ Open an `Issues` session if you have any problems while installing.
+## Cracking and hashing
+- john
+- hashcat
+- yararule
+- rockyou.txt
+- seclists
 
-+ If you want to contribute to this small project, you can open a `Pull requests`.
+## Reverse
+- speakeasy
+- pycdc
+- oletools
+- UPX unpacker
+
+## Memory Forensics
+- volatility 3
+- volatility 2
+- Volatility 3 - Autorun
+- Volatility 3 - Evtxlog
+- Volatility 3 - Notepad
+- Volatility 3 - Sticky
+- Volatility 3 - Prefetch
+- Volatility 3 - Cobaltstrike
+- Volatility 3 - Masquerade Process
+- avml
+
+## Osint
+- holehe
+- sherlock
+- theHarverster
+- ghunt
+
+## Stegno
+- steghide
+- exiftool
+- zsteg
+- stegsolve
+
+## misc
+- ngrok
+- ffuf
+- dwarfdump
+- openssh-server
+- binwalk 
+- openvpn
+- dos2unix
+- gdb

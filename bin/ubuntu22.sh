@@ -47,6 +47,8 @@ function Memory {
                 python2.7 -m pip install -U "$package"
                 writeToLog $? "PIP2 - $package"
         done < $WORKING_DIR/config/requirements2.txt
+
+
         sudo ln -s ~/.local/lib/python2.7/site-packages/usr/lib/libyara.so /usr/lib/libyara.so
         python2.7 -m pip install -U git+https://github.com/volatilityfoundation/volatility.git
         writeToLog $? "Volatility 2"
@@ -55,15 +57,17 @@ function Memory {
                 python3 -m pip install -U "$package" 
                 writeToLog $? "PIP3 - $package"
         done < $WORKING_DIR/config/requirements3.txt
+        
         python3 -m pip install -U git+https://github.com/volatilityfoundation/volatility3.git 
         writeToLog $? "Volatility 3"
         
         # Install Volatility's plugin
         git clone https://github.com/superponible/volatility-plugins.git
         cp ~/lab/volatility-plugins/* ~/.local/lib/python2.7/site-packages/volatility/plugins/
+
         git clone https://github.com/kudelskisecurity/volatility-gpg.git
         cp ~/lab/volatility-gpg/linux/* ~/.local/lib/python3.10/site-packages/volatility3/framework/plugins/linux/
-        git clone https://github.com/volatilityfoundation/volatility.git
+        # git clone https://github.com/volatilityfoundation/volatility.git
         
         # Install AVML and LiME
         echo -e ${RED}'Installing Memory Extractor tools'${NORMAL}
@@ -100,12 +104,6 @@ function Networking_Logging {
                 wget https://github.com/brimdata/zui/releases/download/v1.4.1/zui_1.4.1_amd64.deb -O zui_1.4.1_amd64.deb
         sudo dpkg -i zui_1.4.1_amd64.deb
         writeToLog $? "DPKG - Zui"
-
-        # Install elastic
-        wget https://artifacts.elastic.co/downloads/kibana/kibana-8.11.0-linux-x86_64.tar.gz
-        wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.11.0-linux-x86_64.tar.gz
-        tar -xf kibana-8.11.0-linux-x86_64.tar
-        tar -xf elasticsearch-8.11.0-linux-x86_64.tar
         
         # Install chainsaw and sigma
         cd ~/lab && \
